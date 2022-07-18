@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Classifier</title>
+    <link rel="stylesheet" href="{% static 'dropzone.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'classifier.css' %} ">
+</head>
+
+
+
+
+<body>
+    <b id= "error">Sorry!😞 Can't classify Eyes of person!</b>
+    
+    <h1 class = "heading">Guess Who's Image This Is!</h1>
+    <div class = "main">
+        <div class="dropzone " id="dropzone" >
+            <div class="dz-message needsclick">
+                <img src="{% static 'images/upload.png' %}" width="50vw" height="50vw"><br>
+                <p>Drop files here or click to upload</p>
+            </div>
+        </div> 
+        <div id ="result" class = 'linear-background'>
+            <p id ='pred1' >Model Guessed : <b id="pred">Nothing!</b></p>
+            <h2>My model's likelihood<h2>
+            <div id="result2">
+                {% comment %} Result add here! {% endcomment %}
+                <ul >
+                    
+                </ul>
+                <img id = "result-img" src="{% static 'images/har.jpg' %}">
+                {% comment %} <p id = "result-img">hello</p> {% endcomment %}
+            </div>
+            
+           
+        </div>
+        
+        
+    </div> 
+    <div class="progress">
+        <div class="color"></div>
+        {% comment %} <div id ="loader">Hurray! simply trying to recognize the visual...</div> {% endcomment %}
+        <div id ="loader2">Hurray! simply trying to recognize the visual...</div>
+
+    </div>
+
+    
+    {% comment %} <button id="submitBtn"   class="btn btn-success">Classify</button> {% endcomment %}
+    </div>
+
+    <div class="icons">
+        <p>contact : </p>
+        {% comment %} <p>Author: Shadeer sadikeen</p> {% endcomment %}
+        <a href="https://github.com/shadee22" target="_blank"><img src={%static 'icons/git.jpg' %}></a>
+        <a href="https://www.facebook.com/shadeer.sadikeen/"target="_blank"><img src={%static 'icons/fb.png' %}></a>
+        <a href="https://www.instagram.com/sl_programmer/" target="_blank"><img src={%static 'icons/insta.png' %}></a>
+        <a href="https://www.linkedin.com/in/shadeer-/" target="_blank"><img src={%static 'icons/link.png' %}></a>
+            {% comment %} <img src={%static 'icons/git.png' %}> {% endcomment %}
+
+    </div>
+      
+
+</body>
+<script src="{% static 'jquery.slim.min.js' %}"></script> 
+<script src="{% static 'jquery.min.js' %}"></script>
+
+<script type="text/javascript" src="{% static "dropzone.min.js" %}"></script>
+<script type="text/javascript" src="{% static "app.js" %}"></script>
+
+{% comment %} <script type="text/javascript" src="{% static "app.js" %}"></script> {% endcomment %}
+
+{% comment %} <script type="text/javascript" src="{% static "dropzone.min.js" %}"></script> {% endcomment %}
+</html>

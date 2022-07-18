@@ -1,0 +1,213 @@
+
+
+.flex-container{
+
+    background-color: brown;
+    display: flex;
+    
+
+}
+
+.flex{
+    align-items: center;
+    justify-content: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ecf0f3;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  place-items: center;
+  overflow: hidden;
+  font-family: poppins;
+}
+
+.container {
+  position: relative;
+  width: 350px;
+  height: 500px;
+  border-radius: 20px;
+  padding: 1.5em;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  animation: fadein 2s ;
+}
+
+.brand-logo {
+
+  font-weight: 600;
+    font-family: sans-serif;
+  border-radius: 1em;
+  padding: 0.5rem;
+
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  animation: fadein 2s ;
+
+}
+
+.brand-title {
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #1DA1F2;
+  letter-spacing: 1px;
+}
+
+.inputs {
+  text-align: left;
+  margin-top: 20px;
+}
+
+label, input, button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  font-family: sans-serif;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+label {
+  font-weight: bold;
+    padding: 0.5em;
+  padding-left:20px ;
+  font-family: sans-serif;
+
+  /* margin-bottom: 1em;
+  margin-top: 1em; */
+
+}
+
+
+input::placeholder {
+  color: gray;
+}
+
+input {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 1em;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  animation: fadein 1s ;
+
+}
+
+
+button {
+  margin-top: 20px;
+  height: 40px;
+  margin-top: 2em;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  transition: 0.5s;
+  color: white;
+    background: black;
+    border-radius: 1em;
+}
+
+button:hover {
+  box-shadow: none;
+    background-color: #FFC54D;
+    border-radius: 0.5em;
+
+}
+
+a{
+  position: absolute;
+  font-size: 0.5em;
+  bottom: 4px;
+  right: 4px;
+  text-decoration: none;
+  color: black;
+  border-radius: 2em;
+  padding: 1em;
+  margin: 1em;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  animation: fadin 2s;
+}
+
+h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.custom-select{
+    margin-top:1em;
+}
+select {
+    width: 20em;
+    background: #ecf0f3;
+    padding: 10px;
+    padding-left: 20px;
+    height: 50px;
+    font-size: 14px;
+    border-radius: 1em;
+    /* box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white; */
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+    animation: fadein 2s;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;       /* Remove default arrow */
+    background-image: url(...);   /* Add custom arrow */
+ }
+
+ .result{
+   transition: 0.5s;
+  font-size: 2.5em;
+  font-family: sans-serif;
+  padding: 1em;
+  border-radius: 2em;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  font-weight: 200;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+ }
+ .result b:hover{
+  color : #FFC54D
+ }
+ .result p b {
+  transition: 0.5s;
+
+ }
+
+.button3d {
+  font-size: 0.5em;
+  margin: 1em;
+  background: #ecf0f3;
+  padding: 1em;
+  border-radius: 2em;
+  box-shadow: 7px 14px 20px #cbced1, -8px -5px 20.4px #ec9b3b8f;
+}
+
+@keyframes fadein {
+  0% {
+       /* opacity: 0; */
+       box-shadow :  0px 0px 0px #cbced1, 0px 0px 0px white;
+
+      }
+  50% {
+  /* opacity: 0; */
+  box-shadow :  0px 0px 0px #cbced1, 0px 0px 0px white;
+
+    }
+  100%   { 
+      /* opacity: 1 */
+      box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  }
+}
