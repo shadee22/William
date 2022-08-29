@@ -75,7 +75,7 @@ def result(request):
 
     return render(request, 'index.html', {
         'locations': locations['data_columns'][3:],
-         'result' : result,
+         'result' : jsonify(result).headers.add('Access-Control-Allow-Origin', '*'),
          'fields':fields.items(),
     })
 
@@ -106,10 +106,8 @@ def image_page(request):
 
 
             return JsonResponse({
-                'image_data' : result
-            }
-                
-            )
+                'image_data' : jsonify(result).headers.add('Access-Control-Allow-Origin', '*')
+            })
 
         except Exception as e :   
             return JsonResponse({ 

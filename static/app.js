@@ -35,7 +35,8 @@ function init() {
         $(".progress").fadeIn()
         $.post(url , { 
             image_data: imageData,
-            csrfmiddlewaretoken: CSRFtoken
+            csrfmiddlewaretoken: CSRFtoken,
+            crossDomain: true,
         },function(data , status){
             console.log(data)
             console.log('completed')
@@ -50,22 +51,22 @@ function init() {
             
             probs = gdata['probability']
             name2number = gdata['dictionary']
-            function upperCaseString(str){
-                str = str.charAt(0).toUpperCase() + str.slice(1)
-                str = str.split('_').join(' ')
-                return str
-            }
+            // function upperCaseString(str){
+            //     str = str.charAt(0).toUpperCase() + str.slice(1)
+            //     str = str.split('_').join(' ')
+            //     return str
+            // }
             
             console.log('its working');
             
-            jQuery.each(probs, function(i, v) {
-                console.log(i)
-                n = i + 1
-                e = document.createElement("p")
-                e.innerHTML = upperCaseString( name2number[i]) + " : " +"<b>" + Math.round(v) + "%"+"</b>";
-                $("ul").append(e)
-            });
-            $('#result #pred').text(upperCaseString(gdata.prediction));
+            // jQuery.each(probs, function(i, v) {
+            //     console.log(i)
+            //     n = i + 1
+            //     e = document.createElement("p")
+            //     e.innerHTML = upperCaseString( name2number[i]) + " : " +"<b>" + Math.round(v) + "%"+"</b>";
+            //     $("ul").append(e)
+            // });
+            // $('#result #pred').text(upperCaseString(gdata.prediction));
             $('#result').show(500)
             $(".progress").fadeOut()
             $('#result-img').attr('src' , '/static/images/har.jpg');
