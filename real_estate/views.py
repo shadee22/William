@@ -103,15 +103,15 @@ def image_page(request):
             cv2.imwrite(image_name,new_image)
             # print('new image is ' , new_image)
             result = classify(image_name)
-
+            print('Classify Result is : ' , result)
 
             return JsonResponse({
-                'image_data' : jsonify(result).headers.add('Access-Control-Allow-Origin', '*')
+                'image_data' : result,
             })
 
         except Exception as e :   
             return JsonResponse({ 
-                'image_data' : str(e),
+                'image_data' : str('Error when Classifiying Report'),
             })
         
        
