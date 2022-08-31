@@ -36,8 +36,6 @@ function init() {
         $.post(url , { 
             image_data: imageData,
             csrfmiddlewaretoken: CSRFtoken,
-            crossDomain: true,
-            timeout: 15000
         },function(data , status){
             console.log(data)
             console.log('completed')
