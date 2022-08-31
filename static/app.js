@@ -55,6 +55,8 @@ function init() {
                 str = String(str).charAt(0).toUpperCase() + String(str).slice(1)
                 str = str.split('_').join(' ')
                 return str
+
+                
             }
             
             console.log('its working');
