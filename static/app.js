@@ -38,35 +38,35 @@ function init() {
             csrfmiddlewaretoken: CSRFtoken,
             timeout: 188000 //
         },function(data , status){
-            // console.log(data)
-            // console.log('completed')
-            // if (data.image_data.length == 0) {
-            //     $(".progress").fadeOut();
-            //     $("#error").fadeIn().delay(5000).fadeOut();
-            //     $("#result").hide(300);
-            //     return;
-            // }
-            // let gdata = data.image_data[0]
-            console.log("it running data is :" + str(status));
+            console.log(data)
+            console.log('completed')
+            if (data.image_data.length == 0) {
+                $(".progress").fadeOut();
+                $("#error").fadeIn().delay(5000).fadeOut();
+                $("#result").hide(300);
+                return;
+            }
+            let gdata = data.image_data[0]
+            console.log(gdata);
             
             probs = gdata['probability']
             name2number = gdata['dictionary']
-            // function upperCaseString(str){
-            //     str = str.charAt(0).toUpperCase() + str.slice(1)
-            //     str = str.split('_').join(' ')
-            //     return str
-            // }
+            function upperCaseString(str){
+                str = String(str).charAt(0).toUpperCase() + String(str).slice(1)
+                str = str.split('_').join(' ')
+                return str
+            }
             
             console.log('its working');
             
-            // jQuery.each(probs, function(i, v) {
-            //     console.log(i)
-            //     n = i + 1
-            //     e = document.createElement("p")
-            //     e.innerHTML = upperCaseString( name2number[i]) + " : " +"<b>" + Math.round(v) + "%"+"</b>";
-            //     $("ul").append(e)
-            // });
-            // $('#result #pred').text(upperCaseString(gdata.prediction));
+            jQuery.each(probs, function(i, v) {
+                console.log(i)
+                n = i + 1
+                e = document.createElement("p")
+                e.innerHTML = upperCaseString( name2number[i]) + " : " +"<b>" + Math.round(v) + "%"+"</b>";
+                $("ul").append(e)
+            });
+            $('#result #pred').text(upperCaseString(gdata.prediction));
             $('#result').show(500)
             $(".progress").fadeOut()
             $('#result-img').attr('src' , '/static/images/har.jpg');
