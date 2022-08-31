@@ -45,8 +45,8 @@ function init() {
             //     $("#result").hide(300);
             //     return;
             // }
-            let gdata = data.image_data[0]
-            console.log("it running")
+            // let gdata = data.image_data[0]
+            console.log("it running data is :" + str(status));
             
             probs = gdata['probability']
             name2number = gdata['dictionary']
