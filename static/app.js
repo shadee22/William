@@ -31,7 +31,7 @@ function init() {
         
             
         var CSRFtoken = $('input[name=csrfmiddlewaretoken]').val();
-        var url = 'http://127.0.0.1:8000/image/'
+        var url = 'http://13.234.226.190:80/image/'
         $(".progress").fadeIn()
         $.post(url , { 
             image_data: imageData,
