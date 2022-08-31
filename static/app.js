@@ -37,14 +37,14 @@ function init() {
             image_data: imageData,
             csrfmiddlewaretoken: CSRFtoken,
         },function(data , status){
-            console.log(data)
-            console.log('completed')
-            if (data.image_data.length == 0) {
-                $(".progress").fadeOut();
-                $("#error").fadeIn().delay(5000).fadeOut();
-                $("#result").hide(300);
-                return;
-            }
+            // console.log(data)
+            // console.log('completed')
+            // if (data.image_data.length == 0) {
+            //     $(".progress").fadeOut();
+            //     $("#error").fadeIn().delay(5000).fadeOut();
+            //     $("#result").hide(300);
+            //     return;
+            // }
             let gdata = data.image_data[0]
             console.log("it running")
             

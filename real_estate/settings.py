@@ -82,6 +82,7 @@ DATABASES = {
         'NAME': ':memory:',
     }
 }
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
 
 # Password validation
