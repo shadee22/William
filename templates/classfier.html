@@ -1,38 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+{% load static tailwind_tags %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Machine Learning Classifier</title>
     <link rel="stylesheet" href="{% static 'dropzone.min.css' %} ">
     <link rel="stylesheet" href="{% static 'classifier.css' %} ">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" type="image/png" href="{% static 'icons/fav.png' %}"/>
+
 </head>
-
-
-
-
 <body>
+    <navbar class='grid grid-cols-5 h-16  font-bold text-black'>
+        <div class='items-center justify-center grid '>
+            <a href =" {% url 'home' %}">
+            <img  class =''id = "tooltip_rocket" src="{% static 'icons/startup.png' %}">
+            </a>
+        </div>
+        
+        <div class='col-span-3 items-center justify-center grid'>
+            <h1 class = "heading text-3xl">This model will find out who in this image!</h1>
+        </div>
+        <div class='items-center justify-center grid'>Shadeer Sadikeen</div>
+    </navbar>
     <b id= "error">Sorry!😞 Can't classify Eyes of person!</b>
-    
-    <h1 class = "heading">Guess Who's Image This Is!</h1>
+
     <div class = "main">
         <div class="dropzone " id="dropzone" >
-            <div class="dz-message needsclick">
+            <div class="dz-message grid grid-rows-3 gap-4">
+                <div class="flex align-center hover:animate-ping justify-center">
                 <img src="{% static 'images/upload.png' %}" width="50vw" height="50vw"><br>
-                <p>Drop files here or click to upload</p>
+                </div>
+                <p>Drop files here or click Button Below </p>
+                <button class="px-5 py-2.5 text-white transition rounded-2xl bg-amber-400 hover:bg-amber-500 font-medium	 hover:text-white" >
+                    Click Me!
+
+                </button>
+                {% comment %} {% comment %} <button data-tooltip-target="tooltip-default" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Default tooltip</button>
+                <button data-tooltip-target="tooltip-dark" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Dark tooltip</button>
+<div id="tooltip-dark" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+    Tooltip content
+    <div class="tooltip-arrow" data-popper-arrow></div>
+</div> {% endcomment %} 
+
             </div>
         </div> 
-        <div id ="result" class = 'linear-background'>
-            <p id ='pred1' >Model Guessed : <b id="pred">Nothing!</b></p>
-            <h2>My model's likelihood<h2>
-            <div id="result2">
-                {% comment %} Result add here! {% endcomment %}
-                <ul >
-                    
-                </ul>
-                <img id = "result-img" src="{% static 'images/har.jpg' %}">
-                {% comment %} <p id = "result-img">hello</p> {% endcomment %}
+        <div id ="result" class = ''>
+            <p id ='pred1' >Model Guessed : <b id="pred" class="font-bold">Nothing!</b></p>
+
+            <div class="grid grid-rows-3">
+            <h2 class ="flex items-center justify-center font-medium text-lg underline">My model's likelihood<h2>
+                <div id="result2">
+                    {% comment %} Result add here! {% endcomment %}
+                    <ul class='text-left text-xl font-bold'>
+                        
+                    </ul>
+                    <img  id = "result-img" src="{% static 'images/har.jpg' %}" class = "h-32 rounded-lg">
+                    {% comment %} <p id = "result-img">hello</p> {% endcomment %}
+                </div>
             </div>
             
            

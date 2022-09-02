@@ -6,7 +6,11 @@
 <head>
     <meta charset="utf-8">
     <title>Home page</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'icons/homefav.png' %}"/>
+
     <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <script
     src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
     integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
@@ -14,38 +18,70 @@
 
 </head>
 
-<body>
-    {% comment %} <h1>{{result}}</h1> {% endcomment %}
-    <div class="container">
-    <div class="brand-logo">Real Estate Price Bengaluru</div>
-    <form method = "POST" action="{% url 'result' %}">
-        {% csrf_token %}
-        
-            <div class="inputs">
-                <div class="custom-select" style="width:200px;">
-                    <label placeholder = "Set your location" >Location</label>
-                        <select id="uiLocations" name= "location">
-                        {% for i in locations%} 
-                            <option value="{{i}}">  {{i}}</option>
-                        {% endfor %}
-                        </select>
-                </div>
-              <label>Total SquareFeet</label>
-              <input type="number" id = "sqft" name="total_sqft" min = '300'max = "30000"placeholder="example : 1234 Sqft" />
-              <label>Bathrooms</label>
-              <input type="number"name="bath"  id = "bath" max = "10"  placeholder="How many Bathrooms" />
-              <label>Bedroom House kitchens</label>
-              <input type="number" name="bhk"  id = "bhk" max="15" placeholder="Number of Bedrooms" />
-            
-              <button type="submit" value="Get Predictions">Make Prediction</button>
-              
-            </div>
-          </div>
+<body class = 'bg-gray-100'>
+    <navbar class="grid grid-cols-5 h-16  font-bold text-black">
+        <div class="grid items-center justify-center  ">
+            <a href =" {% url 'home' %}">
+            <img  class ='h-8'id = "tooltip_rocket" src="{% static 'icons/startup.png' %}">
+            </a>
         </div>
-    </form> 
-    
-    <div class = "result">
-        <a class = "button3d"class = "Next_page"  href =" {% url 'classifier' %}"><b>Next</b> Page</a>
+        
+        <div class='col-span-3 items-center justify-center grid'>
+            <h1 class = "heading text-3xl">Real Estate Price Bengaluru</h1>
+        </div>
+    <div id='name' class='slide-in items-center justify-center grid '>A Shadeer sadikeen's website</div>
+    </navbar>
+    {% comment %} <h1>{{result}}</h1> {% endcomment %}
+    <div class="grid grid-cols-2 py-16 ">
+        
+       <div class = "flex content-center justify-center ">
+        <form class="bg-gray-100 nu-shadow  w-3/4 rounded-2xl px-8 pt-6 pb-8 mr-4 " method = "POST" action="{% url 'result' %}">
+            {% csrf_token %}
+
+            <div class="mb-4 flex ">
+                <label class="text-gray-700 text-sm font-bold  flex items-center p-2" for="username">
+                Location : 
+                </label>
+                <div class="custom-select">
+                    <select id="uiLocations" name= "location" class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight">
+                    {% for i in locations%} 
+                    <option value="{{i}}">  {{i}}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+            </div>
+            
+            <div class="mb-4 flex ">
+                <label class="block text-gray-700 text-sm font-bold  flex items-center p-2" for="username">
+                    Total SquareFeet : 
+                </label>
+                <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" id = "sqft" name="total_sqft" min = '300'max = "30000"placeholder="example : 1234 Sqft">
+            </div>
+            
+            <div class="mb-4 flex ">
+                <label class="block text-gray-700 text-sm font-bold min-w-16  flex items-center p-2" for="username">
+                    Bathrooms:
+                </label>
+                <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" type="number"name="bath"  id = "bath" max = "10"  placeholder="How many Bathrooms">
+            </div>
+            
+            <div class="mb-4 flex ">
+                <label class="block text-gray-700 text-sm font-bold  flex items-center p-2" for="username">
+                    Bedroom House kitchens : 
+                </label>
+                <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" type="number" name="bhk"  id = "bhk" max="15" placeholder="Number of Bedrooms" >
+            </div>
+            
+            <div class="flex items-center justify-center">
+              <button class="bg-amber-500	 hover:bg-amber-600 w-full transition text-white font-bold py-2 px-4 rounded-lg" type="submit">
+                Predict the Price 
+              </button>
+            </div>
+        </form>
+    </div>
+   
+    <div class = "result text-center mr-12 rounded-3xl	 grid items-center justify-center nu-shadow">
+        {% comment %} <a class = "button3d"class = "Next_page"  href =" {% url 'classifier' %}"><b>Next</b> Page</a> {% endcomment %}
         {% if result != 0 %}
             <p><b>Predicted Price</b><br>for house</p>
             <p style= 'font-size: 0.4em;color : #747474;'>
@@ -58,7 +94,18 @@
             <p><b>Predict</b> price for Your Home</p>
         {% endif %}
         
-    </div>
+    </div> 
+    </div> 
+    
+    <footer class = 'w-screen flex justify-center'>
+        <div class="icons flex items-center justify-around w-1/4 sm:bg-yellow-500 sm:bg-red-500 md:bg-green-500">
+            <p>Contact : </p>
+            <a href="https://github.com/shadee22" target="_blank"><img class= "opacity-40 " src={%static 'icons/git.jpg' %}></a>
+            <a href="https://www.facebook.com/shadeer.sadikeen/"target="_blank"><img class= "opacity-40 " src={%static 'icons/fb.png' %}></a>
+            <a href="https://www.instagram.com/sl_programmer/" target="_blank"><img  class= "opacity-40 " src={%static 'icons/insta.png' %}></a>
+            <a href="https://www.linkedin.com/in/shadeer-/" target="_blank"><img class= "opacity-40 hover:animate-spin " src={%static 'icons/link.png' %}></a>
+        </div>
+    </footer>
 
 
 </body>

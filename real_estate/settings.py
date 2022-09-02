@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+TAILWIND_APP_NAME = 'theme'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'tailwind',
+  'theme',
     'real_estate',
 ]
 

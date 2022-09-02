@@ -75,7 +75,7 @@ def result(request):
 
     return render(request, 'index.html', {
         'locations': locations['data_columns'][3:],
-         'result' : jsonify(result).headers.add('Access-Control-Allow-Origin', '*'),
+         'result' : result,
          'fields':fields.items(),
     })
 
@@ -104,14 +104,14 @@ def image_page(request):
             # print('new image is ' , new_image)
             result = classify(image_name)
             print('Classify Result is : ' , result)
-
+            
             return JsonResponse({
                 'image_data' : result,
             })
 
         except Exception as e :   
             return JsonResponse({ 
-                'image_data' : str('Error when Classifiying Report'),
+                "image_data" : str(e),
             })
         
        
