@@ -36,15 +36,15 @@
     </div>
     </navbar> 
     {% comment %} <h1>{{result}}</h1> {% endcomment %}
-    <div class="grid grid-cols-2 py-16 ">
+    <div class="grid grid-rows-1  md:grid-cols-2 py-16 ">
         
-       <div class = "flex content-center justify-center ">
-        <form class="bg-gray-100 nu-shadow  w-3/4 rounded-2xl px-8 pt-6 pb-8 mr-4 " method = "POST" action="{% url 'result' %}">
+    <div class = "flex content-center justify-center ">
+        <form class="bg-gray-100 nu-shadow  w-3/4 rounded-3xl px-8 pt-6 pb-8 mr-0 md:mr-4 " method = "POST" action="{% url 'result' %}">
             {% csrf_token %}
 
             <div class="mb-4 flex ">
                 <label class="text-gray-700 text-sm font-bold  flex items-center p-2" for="username">
-                Location : 
+                Location: 
                 </label>
                 <div class="custom-select">
                     <select id="uiLocations" name= "location" class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight">
@@ -57,7 +57,7 @@
             
             <div class="mb-4 flex ">
                 <label class="block text-gray-700 text-sm font-bold  flex items-center p-2" for="username">
-                    Total SquareFeet : 
+                    Total SquareFeet: 
                 </label>
                 <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" id = "sqft" name="total_sqft" min = '300'max = "30000"placeholder="example : 1234 Sqft">
             </div>
@@ -71,20 +71,20 @@
             
             <div class="mb-4 flex ">
                 <label class="block text-gray-700 text-sm font-bold  flex items-center p-2" for="username">
-                    Bedroom House kitchens : 
+                    Bedroom House kitchens: 
                 </label>
                 <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" type="number" name="bhk"  id = "bhk" max="15" placeholder="Number of Bedrooms" >
             </div>
             
             <div class="flex items-center justify-center">
-              <button class="bg-amber-500	 hover:bg-amber-600 w-full transition text-white font-bold py-2 px-4 rounded-lg" type="submit">
+              <button class="bg-amber-500	 hover:bg-amber-600 w-full transition text-white font-bold py-2 px-4 rounded-md" type="submit">
                 Predict the Price 
               </button>
             </div>
         </form>
     </div>
-   
-    <div class = "result text-center mr-12 rounded-3xl lg:visible sm:invisible	 grid items-center justify-center nu-shadow">
+    {% comment %} Result {% endcomment %}
+    <div class = "result text-center  md:mr-12 my-6 rounded-3xl mx-6 grid items-center justify-center nu-shadow">
         {% comment %} <a class = "button3d"class = "Next_page"  href =" {% url 'classifier' %}"><b>Next</b> Page</a> {% endcomment %}
         {% if result != 0 %}
             <p><b>Predicted Price</b><br>for house</p>
@@ -101,8 +101,8 @@
     </div> 
     </div> 
     
-    <footer class = 'w-screen flex justify-center'>
-        <div class="icons flex items-center justify-around w-1/4">
+    <footer class = 'flex align-center md:w-screen justify-center'>
+        <div class="icons flex items-center justify-around md:w-1/4 w-3/4">
             <p>Contact : </p>
             <a href="https://github.com/shadee22" target="_blank"><img class= "opacity-40 " src={%static 'icons/git.jpg' %}></a>
             <a href="https://www.facebook.com/shadeer.sadikeen/"target="_blank"><img class= "opacity-40 " src={%static 'icons/fb.png' %}></a>
