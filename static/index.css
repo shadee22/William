@@ -82,7 +82,9 @@ opacity: 0.5;
   box-shadow: 7px 14px 20px #cbced1, -8px -5px 20.4px #ec9b3b8f;
 }
 
-
+.alert {
+  display: none;
+}
 
 @keyframes rotate-center {
   0% {

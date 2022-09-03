@@ -19,18 +19,22 @@
 </head>
 
 <body class = 'bg-gray-100'>
+
     <navbar class="grid grid-cols-5 h-16  font-bold text-black">
         <div class="grid items-center justify-center  ">
             <a href =" {% url 'home' %}">
-            <img  class ='h-8'id = "tooltip_rocket" src="{%static 'icons/happy.png' %}">
+            <img  class ='h-8'id = "tooltip_rocket" src="{%static 'icons/startup.png' %}">
             </a>
         </div>
         
-        <div class='col-span-3 items-center justify-center grid'>
+        <div class='col-span-3 text-center  items-center justify-center grid'>
             <h1 class = "heading text-3xl">Real Estate Price Bengaluru</h1>
         </div>
-    <div id='name' class='slide-in items-center justify-center grid '>A Shadeer sadikeen's website</div>
-    </navbar>
+    <div id='name' class='slide-in font-xs grid items-center md:items-center  w-full text-sm  md:flex font-light   '>
+        <div class='font-bold'> Shadeer sadikeen</div>
+        <div>' s website</div>
+    </div>
+    </navbar> 
     {% comment %} <h1>{{result}}</h1> {% endcomment %}
     <div class="grid grid-cols-2 py-16 ">
         
@@ -80,7 +84,7 @@
         </form>
     </div>
    
-    <div class = "result text-center mr-12 rounded-3xl	 grid items-center justify-center nu-shadow">
+    <div class = "result text-center mr-12 rounded-3xl lg:visible sm:invisible	 grid items-center justify-center nu-shadow">
         {% comment %} <a class = "button3d"class = "Next_page"  href =" {% url 'classifier' %}"><b>Next</b> Page</a> {% endcomment %}
         {% if result != 0 %}
             <p><b>Predicted Price</b><br>for house</p>
@@ -98,7 +102,7 @@
     </div> 
     
     <footer class = 'w-screen flex justify-center'>
-        <div class="icons flex items-center justify-around w-1/4 sm:bg-yellow-500 sm:bg-red-500 md:bg-green-500">
+        <div class="icons flex items-center justify-around w-1/4">
             <p>Contact : </p>
             <a href="https://github.com/shadee22" target="_blank"><img class= "opacity-40 " src={%static 'icons/git.jpg' %}></a>
             <a href="https://www.facebook.com/shadeer.sadikeen/"target="_blank"><img class= "opacity-40 " src={%static 'icons/fb.png' %}></a>
@@ -110,6 +114,23 @@
 
 </body>
 <script>
+    function closeAlert(event){
+        let element = event.target;
+        while(element.nodeName !== "BUTTON"){
+          element = element.parentNode;
+        }
+        element.parentNode.parentNode.removeChild(element.parentNode);
+    }
+    
+    $('#name').click(function(){
+        alert('shader');
+    });
+
+    window.addEventListener('load', function () {
+        var button = $('.trigger')
+      
+        button.addEventListener('click', addAlert);
+      });
     function getBathValue() {
         var uiBathrooms = document.getElementsByName("uiBathrooms");
         for(var i in uiBathrooms) {
