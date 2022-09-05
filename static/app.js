@@ -6,7 +6,7 @@ Dropzone.autoDiscover = false
 $(document).ready(function() {
     $("#result").hide();
     $("#error").hide();
-    $(".progress").hide();
+    $(".loading").hide();
 
     init();
     
@@ -38,7 +38,7 @@ function init() {
             
         var CSRFtoken = $('input[name=csrfmiddlewaretoken]').val();
         
-        $(".progress").fadeIn()
+        $(".loading").fadeIn()
         $.post(live_url , { 
             image_data: imageData,
             csrfmiddlewaretoken: CSRFtoken,
@@ -46,7 +46,7 @@ function init() {
         },function(data , status){
             console.log(data);
             if (data.image_data.length == 0) {
-                $(".progress").fadeOut();
+                $(".loading").fadeOut();
                 $("#error").fadeIn().delay(5000).fadeOut();
                 $("#result").hide(300);
                 return;
@@ -70,7 +70,7 @@ function init() {
 
             $('#result #pred').text(upperCaseString(gdata.prediction));
             $('#result').show(500)
-            $(".progress").hide()
+            $(".loading").hide()
             $('#result-img').attr('src' , '/static/images/har.jpg');
             console.log('Everything Loaded Properly!')
         })
@@ -80,7 +80,7 @@ function init() {
     dz.on('error' , function(file ,res){
         $("#error").text(res)
         $("#error").show(3000).delay.hide(3000)
-        $(".progress").hide();
+        $(".loading").hide();
 
     });
     // $("#submitBtn").on('click', function (e) {
