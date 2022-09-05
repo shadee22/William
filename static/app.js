@@ -23,7 +23,7 @@ function init() {
     
     dz.on("addedfile", function(file) {
             $('ul p').remove()
-            // $('#result-img').remove()
+            $('#result').hide(500);
             
             if (dz.files[1]!=null) {
                 dz.removeFile(dz.files[0]);        
