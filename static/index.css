@@ -40,6 +40,63 @@
 .nu-shadow {
   box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;}
 
+h1:hover{
+  animation: shake-left 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+#tooltip_rocket:hover{
+	animation: wobble-hor-bottom 0.8s both;
+
+}
+@keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    transform: translateX(0%);
+    transform-origin: 50% 50%;
+  }
+  15% {
+    transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+
+@keyframes shake-left {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 0 50%;
+  }
+  10% {
+    transform: rotate(2deg);
+  }
+  20%,
+  40%,
+  60% {
+    transform: rotate(-4deg);
+  }
+  30%,
+  50%,
+  70% {
+    transform: rotate(4deg);
+  }
+  80% {
+    transform: rotate(-2deg);
+  }
+  90% {
+    transform: rotate(2deg);
+  }
+}
+
 
  .result{
    transition: 0.5s;

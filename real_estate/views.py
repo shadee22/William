@@ -95,7 +95,8 @@ def image_page(request):
     if request.method == "POST" : 
 
 
-        image_data =request.POST
+        image_data = request.POST
+        print('image_post' , image_data);
         try :
             method = image_data['image_data']
             new_image = get_cv2_image_from_base64_string(method)
@@ -110,6 +111,7 @@ def image_page(request):
             })
 
         except Exception as e :   
+            print(e);
             return JsonResponse({ 
                 "image_data" : str(e),
             })

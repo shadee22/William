@@ -18,37 +18,36 @@
 
 </head>
 
-<body class = 'bg-gray-100 sm:text-2xl'>
-
+<body class = 'bg-gray-100'>
+    
     <navbar class="grid grid-cols-5 font-bold text-black">
         <div class="grid items-center justify-center  ">
-            <a href =" {% url 'home' %}">
-            <img  class ='md:h-14 sm:h-16 py-2 sm:py-0 object-cover'id = "tooltip_rocket" src="{%static 'icons/startup.png' %}">
+            <a href =" {% url 'classifier' %}">
+            <img  class ='lg:h-10  sm:h-16'id = "tooltip_rocket" src="{%static 'icons/startup.png' %}">
             </a>
         </div>
         
         <div class='col-span-3 text-center  items-center justify-center grid'>
-            <h1 class = "heading text-2xl sm:py-6 sm:text-5xl lg:text-3xl">Real Estate Price Bengalore</h1>
+            <h1 class = "heading text-2xl sm:py-6  sm:text-5xl lg:text-3xl">Real Estate Price Bengalore</h1>
         </div>
-        <div id='name' class='slide-in font-xs   w-full text-sm sm:text-2xl  flex items-center justify-center font-light   '>
+        <div id='name' class='slide-in font-xs  items-center   w-full text-sm  flex font-light   '>
             <span class='font-bold'> Shadeer sadikeen</span>
             <span>' s website</span>
         </div>
     </navbar> 
 
     
-    <div class="grid grid-rows-1  lg:grid-cols-2 py-16 ">
+    <div class="grid sm:grid-rows-1  lg:grid-cols-2 ">
         
-    <div class = "flex content-center justify-center ">
-        <form class="bg-gray-100 nu-shadow  w-3/4 rounded-3xl px-8 pt-6 pb-8 mr-0 lg:mr-4 " method = "POST" action="{% url 'result' %}">
+    <div class = "flex content-center justify-center "> 
+        <form class="bg-gray-100 nu-shadow  rounded-3xl px-8 pb-8 mr-0 lg:w-3/4 lg:mr-4 sm:w-full sm:m-12 sm:p-12" method = "POST" action="{% url 'result' %}">
             {% csrf_token %}
-
             <div class="mb-4 flex sm:grid ">
-                <label class="text-gray-700 text-sm sm:text-4xl font-bold  flex items-center p-2" for="username">
+                <label class="text-gray-700 lg:text-sm font-bold sm:text-4xl  flex items-center p-2" for="username">
                 Location: 
                 </label>
                 <div class="custom-select">
-                    <select id="uiLocations" name= "location" class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight">
+                    <select id="uiLocations" name= "location" class="  bg-gray-100 text-gray-500 font-bold rounded-lg  border w-full py-4  px-12 text-gray-700 lg:text-sm sm:text-2xl  ">
                     {% for i in locations%} 
                     <option value="{{i}}">  {{i}}</option>
                     {% endfor %}
@@ -56,29 +55,29 @@
                 </div>
             </div>
             
-            <div class="mb-4 flex sm:grid ">
-                <label class="text-gray-700 text-sm sm:text-5xl font-bold  flex items-center p-2" for="username">
+            <div class="mb-4 lg:flex sm:grid ">
+                <label class="text-gray-700 lg:text-sm font-bold sm:text-4xl  flex items-center p-2" for="username">
                     Total SquareFeet: 
                 </label>
-                <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" id = "sqft" name="total_sqft" min = '300'max = "30000"placeholder="example : 1234 Sqft">
+                <input class="  bg-gray-100 text-gray-500 font-bold rounded-lg  border w-full py-4  px-6 text-gray-700 lg:text-sm sm:text-2xl  "required="required" id = "sqft" name="total_sqft" min = '300'max = "30000"placeholder="example : 1234 Sqft">
             </div>
             
-            <div class="mb-4 flex sm:grid ">
-                <label class="text-gray-700 text-sm sm:text-6xl font-bold  flex items-center p-2" for="username">
+            <div class="mb-4 lg:flex sm:grid ">
+                <label class="text-gray-700 lg:text-sm font-bold sm:text-4xl  flex items-center p-2" for="username">
                     Bathrooms:
                 </label>
-                <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" type="number"name="bath"  id = "bath" max = "10"  placeholder="How many Bathrooms">
+                <input class="  bg-gray-100 text-gray-500 font-bold rounded-lg  border w-full py-4  px-6 text-gray-700 lg:text-sm sm:text-2xl  " required="required" type="number"name="bath"  id = "bath" min ='1'max = "10"  placeholder="How many Bathrooms">
             </div>
             
-            <div class="mb-4 flex sm:grid ">
-                <label class="text-gray-700 text-sm sm:text-7xl font-bold  flex items-center p-2" for="username">
+            <div class="mb-4 lg:flex sm:grid ">
+                <label class="text-gray-700 lg:text-sm font-bold sm:text-4xl  flex items-center p-2" required="required" for="username">
                     Bedroom House kitchens: 
                 </label>
-                <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" type="number" name="bhk"  id = "bhk" max="15" placeholder="Number of Bedrooms" >
+                <input class="  bg-gray-100 text-gray-500 font-bold rounded-lg  border w-full py-4  px-6 text-gray-700 lg:text-sm sm:text-2xl  "required="required" type="number" name="bhk"  id = "bhk" min='1' max="15" placeholder="Number of Bedrooms" >
             </div>
             
             <div class="flex items-center justify-center">
-              <button class="bg-amber-500 hover:bg-amber-600 w-full transition text-white font-bold py-2 px-4 rounded-md sm:text-4xl sm:py-4 sm:px-6 sm:rounded-2xl" type="submit">
+              <button class="bg-amber-500 hover:bg-amber-600 w-full transition text-white font-bold py-2 px-4 rounded-full lg:text-lg sm:text-4xl sm:py-4 sm:font-medium " type="submit">
                 Predict the Price 
               </button>
             </div>
@@ -92,22 +91,23 @@
 
     {% endcomment %}
 
-    <div class="flex justify-center lg:my-0 mt-16">
-    <div class = "result text-center my-6 lg:my-0 w-3/4 lg:mt-0 rounded-3xl mx-6 grid items-center justify-center nu-shadow">
+    <div class="flex justify-center lg:my-0">
+    <div class = "result text-center  w-3/4  rounded-3xl mx-6  grid items-center justify-center nu-shadow bg-gray-100 nu-shadow   rounded-3xl px-8 pb-8 mr-0 lg:w-3/4  lg:ml-0 lg:mr-4 sm:w-full sm:m-12 sm:p-12 " >
         {% comment %} <a class = "button3d"class = "Next_page"  href =" {% url 'classifier' %}"><b>Next</b> Page</a> {% endcomment %}
         {% if result != 0 %}
 
-            <p class="text-5xl"><b>Predicted Price</b><br>for house</p>
-            <p class='text-lg sm:py-6 sm:text-2xl sm:text-gray-500'>
+
+            <p><b>Predicted Price</b><br>for house</p>
+            <p style= 'font-size: 0.4em;color : #747474;'>
             {% for k , v in fields %} 
-                <b style = "padding-left: 1em" >{{k}}: </b>  {{v}} 
+                <b style = "padding-left: 1em">{{k}}: </b>  {{v}} 
             {% endfor %}
             </p>
             <p><b>{{result}} Lakhs</b></p>
         {% else %}
-            <p class='text-5xl'><b>Predict</b> price for Your Home</p>
+            <p><b>Predict</b> price for Your Home</p>
         {% endif %}
-
+        
     </div> 
     </div> 
     </div> 
@@ -124,24 +124,12 @@
 
 
 </body>
-<script>
-    function closeAlert(event){
-        let element = event.target;
-        while(element.nodeName !== "BUTTON"){
-          element = element.parentNode;
-        }
-        element.parentNode.parentNode.removeChild(element.parentNode);
-    }
-    
-    $('#name').click(function(){
-        alert('shader');
-    });
+<script src="{% static 'jquery.slim.min.js' %}"></script> 
+<script src="{% static 'jquery.min.js' %}"></script>
+<script src="{% static 'index.js' %}"></script>
 
-    window.addEventListener('load', function () {
-        var button = $('.trigger')
-      
-        button.addEventListener('click', addAlert);
-      });
+<script>
+    $("#name").slideDown("slow");
     function getBathValue() {
         var uiBathrooms = document.getElementsByName("uiBathrooms");
         for(var i in uiBathrooms) {
