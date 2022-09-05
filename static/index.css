@@ -68,9 +68,6 @@ opacity: 0.5;
 .icons img:hover{
   animation: rotate-center 0.4s ease-in-out both;
 }
-#result ul{
-  padding: 0px;
-}
 
 
 .button3d {

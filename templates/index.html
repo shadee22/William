@@ -18,21 +18,21 @@
 
 </head>
 
-<body class = 'bg-gray-100'>
+<body class = 'bg-gray-100 sm:text-2xl'>
 
     <navbar class="grid grid-cols-5 font-bold text-black">
         <div class="grid items-center justify-center  ">
             <a href =" {% url 'home' %}">
-            <img  class ='h-8'id = "tooltip_rocket" src="{%static 'icons/startup.png' %}">
+            <img  class ='md:h-14 sm:h-16 py-2 sm:py-0 object-cover'id = "tooltip_rocket" src="{%static 'icons/startup.png' %}">
             </a>
         </div>
         
         <div class='col-span-3 text-center  items-center justify-center grid'>
             <h1 class = "heading text-2xl sm:py-6 sm:text-5xl lg:text-3xl">Real Estate Price Bengalore</h1>
         </div>
-        <div id='name' class='slide-in font-xs grid items-center lg:items-center  w-full text-sm  lg:flex font-light   '>
-            <div class='font-bold'> Shadeer sadikeen</div>
-            <div>' s website</div>
+        <div id='name' class='slide-in font-xs   w-full text-sm sm:text-2xl  flex items-center justify-center font-light   '>
+            <span class='font-bold'> Shadeer sadikeen</span>
+            <span>' s website</span>
         </div>
     </navbar> 
 
@@ -43,8 +43,8 @@
         <form class="bg-gray-100 nu-shadow  w-3/4 rounded-3xl px-8 pt-6 pb-8 mr-0 lg:mr-4 " method = "POST" action="{% url 'result' %}">
             {% csrf_token %}
 
-            <div class="mb-4 flex ">
-                <label class="text-gray-700 text-sm font-bold  flex items-center p-2" for="username">
+            <div class="mb-4 flex sm:grid ">
+                <label class="text-gray-700 text-sm sm:text-2xl font-bold  flex items-center p-2" for="username">
                 Location: 
                 </label>
                 <div class="custom-select">
@@ -56,29 +56,29 @@
                 </div>
             </div>
             
-            <div class="mb-4 flex ">
-                <label class="block text-gray-700 text-sm font-bold  flex items-center p-2" for="username">
+            <div class="mb-4 flex sm:grid ">
+                <label class="text-gray-700 text-sm sm:text-2xl font-bold  flex items-center p-2" for="username">
                     Total SquareFeet: 
                 </label>
                 <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" id = "sqft" name="total_sqft" min = '300'max = "30000"placeholder="example : 1234 Sqft">
             </div>
             
-            <div class="mb-4 flex ">
-                <label class="block text-gray-700 text-sm font-bold min-w-16  flex items-center p-2" for="username">
+            <div class="mb-4 flex sm:grid ">
+                <label class="text-gray-700 text-sm sm:text-2xl font-bold  flex items-center p-2" for="username">
                     Bathrooms:
                 </label>
                 <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" type="number"name="bath"  id = "bath" max = "10"  placeholder="How many Bathrooms">
             </div>
             
-            <div class="mb-4 flex ">
-                <label class="block text-gray-700 text-sm font-bold  flex items-center p-2" for="username">
+            <div class="mb-4 flex sm:grid ">
+                <label class="text-gray-700 text-sm sm:text-2xl font-bold  flex items-center p-2" for="username">
                     Bedroom House kitchens: 
                 </label>
                 <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" type="number" name="bhk"  id = "bhk" max="15" placeholder="Number of Bedrooms" >
             </div>
             
             <div class="flex items-center justify-center">
-              <button class="bg-amber-500	 hover:bg-amber-600 w-full transition text-white font-bold py-2 px-4 rounded-md" type="submit">
+              <button class="bg-amber-500 hover:bg-amber-600 w-full transition text-white font-bold py-2 px-4 rounded-md sm:text-4xl sm:py-4 sm:px-6 sm:rounded-2xl" type="submit">
                 Predict the Price 
               </button>
             </div>
@@ -98,15 +98,15 @@
         {% if result != 0 %}
 
 
-            <p><b>Predicted Price</b><br>for house</p>
-            <p style= 'font-size: 0.4em;color : #747474;'>
+            <p class="text-5xl"><b>Predicted Price</b><br>for house</p>
+            <p class='text-lg sm:py-6 sm:text-2xl sm:text-gray-500'>
             {% for k , v in fields %} 
-                <b style = "padding-left: 1em">{{k}}: </b>  {{v}} 
+                <b style = "padding-left: 1em" >{{k}}: </b>  {{v}} 
             {% endfor %}
             </p>
             <p><b>{{result}} Lakhs</b></p>
         {% else %}
-            <p><b>Predict</b> price for Your Home</p>
+            <p class='text-5xl'><b>Predict</b> price for Your Home</p>
         {% endif %}
         
     </div> 
