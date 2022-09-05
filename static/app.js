@@ -39,7 +39,7 @@ function init() {
         var CSRFtoken = $('input[name=csrfmiddlewaretoken]').val();
         
         $(".progress").fadeIn()
-        $.post(local_url , { 
+        $.post(live_url , { 
             image_data: imageData,
             csrfmiddlewaretoken: CSRFtoken,
             timeout: 188000 
