@@ -44,7 +44,7 @@
             {% csrf_token %}
 
             <div class="mb-4 flex sm:grid ">
-                <label class="text-gray-700 text-sm sm:text-2xl font-bold  flex items-center p-2" for="username">
+                <label class="text-gray-700 text-sm sm:text-4xl font-bold  flex items-center p-2" for="username">
                 Location: 
                 </label>
                 <div class="custom-select">
@@ -57,21 +57,21 @@
             </div>
             
             <div class="mb-4 flex sm:grid ">
-                <label class="text-gray-700 text-sm sm:text-2xl font-bold  flex items-center p-2" for="username">
+                <label class="text-gray-700 text-sm sm:text-5xl font-bold  flex items-center p-2" for="username">
                     Total SquareFeet: 
                 </label>
                 <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" id = "sqft" name="total_sqft" min = '300'max = "30000"placeholder="example : 1234 Sqft">
             </div>
             
             <div class="mb-4 flex sm:grid ">
-                <label class="text-gray-700 text-sm sm:text-2xl font-bold  flex items-center p-2" for="username">
+                <label class="text-gray-700 text-sm sm:text-6xl font-bold  flex items-center p-2" for="username">
                     Bathrooms:
                 </label>
                 <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" type="number"name="bath"  id = "bath" max = "10"  placeholder="How many Bathrooms">
             </div>
             
             <div class="mb-4 flex sm:grid ">
-                <label class="text-gray-700 text-sm sm:text-2xl font-bold  flex items-center p-2" for="username">
+                <label class="text-gray-700 text-sm sm:text-7xl font-bold  flex items-center p-2" for="username">
                     Bedroom House kitchens: 
                 </label>
                 <input class="  bg-gray-100 rounded-lg h-12 border w-full py-2 px-3 text-gray-700 leading-tight" type="number" name="bhk"  id = "bhk" max="15" placeholder="Number of Bedrooms" >
@@ -97,7 +97,6 @@
         {% comment %} <a class = "button3d"class = "Next_page"  href =" {% url 'classifier' %}"><b>Next</b> Page</a> {% endcomment %}
         {% if result != 0 %}
 
-
             <p class="text-5xl"><b>Predicted Price</b><br>for house</p>
             <p class='text-lg sm:py-6 sm:text-2xl sm:text-gray-500'>
             {% for k , v in fields %} 
@@ -108,7 +107,7 @@
         {% else %}
             <p class='text-5xl'><b>Predict</b> price for Your Home</p>
         {% endif %}
-        
+
     </div> 
     </div> 
     </div> 
