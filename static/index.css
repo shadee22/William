@@ -113,14 +113,14 @@ h1:hover{
  .icons p{
   opacity: 0.5;
 }
-
+/* 
 .icons img{
-opacity: 0.5;
+  opacity: 0.5;
   height: 2.3em;
-  /* transition: 2s; */
+  /* transition: 2s; 
   padding: 0.5em;
   
-}
+} */
 
 .icons img:hover{
   animation: rotate-center 0.4s ease-in-out both;
