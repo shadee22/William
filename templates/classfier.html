@@ -12,11 +12,12 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'icons/fav.png' %}"/>
 
 </head>
+
 <body class="bg-gray-100">
-    
+
     <navbar class="grid grid-cols-5 font-bold text-black">
         <div class="grid items-center justify-center  ">
-            <a href =" {% url 'classifier' %}">
+            <a href =" {% url 'home' %}">
             <img  class ='lg:h-10  sm:h-16'id = "tooltip_rocket" src="{%static 'icons/startup.png' %}">
             </a>
         </div>
@@ -26,7 +27,7 @@
 
         </div>
         <div id='name' class='slide-in font-xs  items-center   w-full text-sm  flex font-light   '>
-            <span class='font-bold'> Shadeer sadikeen</span>
+            <span class='font-bold'> Shadeer sadikeen </span>
         </div>
     </navbar> 
 
@@ -84,22 +85,29 @@
         <div class="color"></div>
         {% comment %} <div id ="loader">Hurray! simply trying to recognize the visual...</div> 
         <div id ="loader2">Hurray! simply trying to recognize the visual...</div>
-
     </div> {% endcomment %}
-
     
     {% comment %} <button id="submitBtn"   class="btn btn-success">Classify</button> {% endcomment %}
     </div>
-    <footer class = 'flex align-center lg:w-screen   justify-center'>
-        <div class="icons flex items-center my-6 justify-around lg:w-2/4 sm:w-3/4">
-            <a href="https://github.com/shadee22" target="_blank"><img class= "opacity-40 lg:h-8 lg:w-8  sm:h-20 sm:w-full " src={%static 'icons/git.jpg' %}></a>
-            <a href="https://www.facebook.com/shadeer.sadikeen/"target="_blank"><img class= "opacity-40 lg:h-8 lg:w-8 sm:h-20 sm:w-full " src={%static 'icons/fb.png' %}></a>
-            <a href="https://www.instagram.com/sl_programmer/" target="_blank"><img  class= "opacity-40 object-contain  lg:h-8 lg:w-full sm:h-24 sm:w-full " src={%static 'icons/insta.png' %}></a>
-            <a href="https://www.linkedin.com/in/shadeer-/" target="_blank"><img class= "opacity-40 lg:h-8 lg:w-8 sm:h-20 sm:w-full " src={%static 'icons/link.png' %}></a>
+    {% comment %} <footer class = 'flex align-center lg:w-2/4 sm:w-52  justify-center'>
+        <div class="icons flex items-center my-6 justify-around ">
+            <a href="https://github.com/shadee22" target="_blank"><img class= "opacity-40 lg:h-8 lg:w-8 w-28  sm:h-20  " src={%static 'icons/git.jpg' %}></a>
+            <a href="https://www.facebook.com/shadeer.sadikeen/"target="_blank"><img class= "opacity-40 lg:h-8 w-52 lg:w-8 sm:h-20 sm:w-full " src={%static 'icons/fb.png' %}></a>
+            <a href="https://www.instagram.com/sl_programmer/" target="_blank"><img  class= "opacity-40  w-32  lg:h-8 lg:w-full sm:h-24 sm:w-full " src={%static 'icons/insta.png' %}></a>
+            <a href="https://www.linkedin.com/in/shadeer-/" target="_blank"><img class= "opacity-40 lg:h-8 lg:w-8  w-52 sm:h-20 sm:w-full " src={%static 'icons/link.png' %}></a>
         </div>
-    </footer> 
+    </footer>  {% endcomment %}
       
-
+    <footer class=' centered '>
+        <a href="mailto:shadeersadikeen@gmail.com" class="cursor-pointer centered text-gray-500" target="_blank">
+        <span>
+            <img class= "h-6 opacity-40" src={%static 'icons/email.png' %}>
+        </span>
+        <span class="ml-2">
+            shadeersadikeen@gmail.com
+        </span>
+        </a>
+    </footer>
 </body>
 <script src="{% static 'jquery.slim.min.js' %}"></script> 
 <script src="{% static 'jquery.min.js' %}"></script>

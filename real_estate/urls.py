@@ -27,10 +27,6 @@ urlpatterns = [
     path('result/', views.result, name='result'),
     path('image/' , views.image_page , name="classifier"),
     # path('upload/' , views.image_upload , name="image_upload"),
-
-
-
-
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
