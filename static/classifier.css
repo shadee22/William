@@ -113,6 +113,11 @@
 
   transition: 1s;
 }
+
+.dropzone .dz-image , .dropzone .dz-image img{
+  height: 20em !important;
+  width: 20em !important;
+}
 #error {
     padding: 1em;
     position: absolute;
