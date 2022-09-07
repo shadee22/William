@@ -236,12 +236,13 @@ footer a:hover{
 
 
 #tooltip_rocket{
-  height: 2em;
-  cursor: pointer; 
-  transition: all 0.5s ;
+  transition: all 0.2s;
 }
 #tooltip_rocket:hover{
-  height: 3em;
+  height: 3.5em;
+  padding: 6.1px;
+  background: #c7c7c7cc;
+  border-radius: 9px;
 }
 
 

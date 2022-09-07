@@ -40,12 +40,17 @@
 .nu-shadow {
   box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;}
 
-h1:hover{
+/* h1:hover{
   animation: shake-left 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+} */
+#tooltip_rocket{
+  transition: all 0.5s;
 }
 #tooltip_rocket:hover{
-	animation: wobble-hor-bottom 0.8s both;
-
+  height: 3.5em;
+  padding: 6.1px;
+  background: #c7c7c7cc;
+  border-radius: 9px;
 }
 @keyframes wobble-hor-bottom {
   0%,
