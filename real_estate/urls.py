@@ -24,8 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # add these to configure our home page (default view) and result web page
     path('', views.home, name='home'),
-    path('result/', views.result, name='result'),
-    path('image/' , views.image_page , name="classifier"),
+    path('william_prediction/', views.result, name='result'),
+    path('william_classifier/' , views.image_page , name="classifier"),
     # path('upload/' , views.image_upload , name="image_upload"),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
