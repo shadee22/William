@@ -91,39 +91,3 @@ function init() {
 // $("#test").on('click' , function(){
 //     $('#result-img').attr('src' , '/static/images/har.jpg');
 // })
-
-window.onload = function() {
-    $('#modal').hide();
-    setTimeout(function() {
-        $( "#modal" ).fadeIn()
-      }, 5000);
-
-    setTimeout(function() {
-        $( "#modal" ).fadeOut()
-    }, 120000);
-}
-
-$('.close').click(function(){
-    $("#modal").fadeOut();
-});
-
-$('.alexa-text').keypress(function (e) {
-    if (e.which == 32){
-        console.log('Space Detected');
-        return false;
-    }
-    if (e.which == 13) {
-        let val = capital_first_letter($('.alexa-text').val())
-        $("#modal").fadeOut();
-        $.post("http://127.0.0.1:8000/saving_names/",{
-            names : val,
-        },function(res){
-            console.log(res);
-            $('.name').text(val);
-        });
-    }
-});
-function capital_first_letter(string){
-    return string.charAt(0).toUpperCase() + string.slice(1);
-
-}
