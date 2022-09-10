@@ -25,8 +25,14 @@ urlpatterns = [
     # add these to configure our home page (default view) and result web page
     path('', views.home, name='home'),
     path('william_prediction/', views.result, name='result'),
+    path('image/' , views.image_page , name="classifier"),
     path('william_classifier/' , views.image_page , name="classifier"),
     # path('upload/' , views.image_upload , name="image_upload"),
+    path('saving_names/' , views.saving_names , name='saving'),
+    path('test_unit/' , views.test_unit , name='test'),
+    path('all_names/' , views.all_names , name='all'),
+    path('delete_all/' , views.delete_all , name='delete_all'),
+    
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

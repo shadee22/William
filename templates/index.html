@@ -21,32 +21,11 @@
 </head>
 
 <body class = 'bg-gray-100'>
-    
-    <navbar class="grid grid-cols-5 font-bold text-black">
-        <div class="grid items-center justify-center  ">
-            <a href =" {% url 'classifier' %}"  data-tooltip-target="tooltip-right" data-tooltip-placement="right"
-            class ="mb-2 transition-all   focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-            >
-            <img  class ='lg:h-10  sm:h-16'id = "tooltip_rocket" src="{%static 'icons/startup.png' %}">
-            </a>
-
-            {% comment %} <button type="button" class="">Tooltip right</button> {% endcomment %}
-            <div id="tooltip-right" role="tooltip" class="inline-block absolute invisible transition-all  z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip ">
-                I am a image Classifier
-                <div class="tooltip-arrow" data-popper-arrow></div>
-            </div>
-            
-
-        </div>
+        {% include 'comps/name_alert.html' %}
         
-        <div class='col-span-3 text-center  items-center justify-center grid'>
-            <h1 class = "heading text-2xl sm:py-6  sm:text-5xl lg:text-3xl">Real Estate Price Bengalore</h1>
-        </div>
-        <div id='name' class='slide-in font-xs  items-center   w-full text-sm  flex font-light   '>
-            <span class='font-bold'> Shadeer sadikeen</span>
-            <span>' s website</span>
-        </div>
-    </navbar> 
+        {% include 'comps/navbar.html' with title='Real Estate Price Bengalore' name='classifier' tooltip='I am Image Classifier' %}
+
+                
 
     
     <div class="grid sm:grid-rows-1  lg:grid-cols-2 lg:py-12 ">
@@ -139,37 +118,4 @@
 <script src="{% static 'jquery.min.js' %}"></script>
 <script src="{% static 'index.js' %}"></script>
 
-<script>
-    $("#name").slideDown("slow");
-    function getBathValue() {
-        var uiBathrooms = document.getElementsByName("uiBathrooms");
-        for(var i in uiBathrooms) {
-          if(uiBathrooms[i].checked) {
-              return parseInt(i)+1;
-          }
-        }
-        return -1; // Invalid Value
-      }
-      
-    function onPageLoad() {
-        console.log( "document loaded" );
-        // var url = "http://127.0.0.1:5000/get_location_names"; // Use this if you are NOT using nginx which is first 7 tutorials
-        // var url = "/api/get_location_names"; // Use this if  you are using nginx. i.e tutorial 8 and onwards
-        url = "http://127.0.0.1:8000/"
-        live_url = "http://13.234.226.190:80/"
-        $.get(live_url,function(data, status) {
-            console.log("got response for get_location_names request");
-            if(data) {
-                var locations = data.locations;
-                var uiLocations = document.getElementById("uiLocations");
-                $('#uiLocations').empty();
-                for(var i in locations) {
-                    var opt = new Option(locations[i]);
-                    $('#uiLocations').append(opt);
-                }
-            }
-        });
-      }
-    
-</script>
 </html>

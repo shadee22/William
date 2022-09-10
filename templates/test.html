@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+
+<head>
+    <meta charset="utf-8">
+    <title>Home page</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'icons/homefav.png' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+<script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+    crossorigin="anonymous"></script>
+<script>
+    
+</script>
+</head>
+<body class = 'bg-gray-100 dark:bg-gray-900 transition-all'>
+    <nav class='grid grid-cols-4'>
+        <div class='flex justify-start items-center ml-12'>
+            <a href ="{% url 'home' %}">
+            <button type="button" class="dark:text-gray-900  text-white  bg-gray-800 hover:bg-gray-900 
+             font-medium  text-sm px-4 py-2 mr-2 mb-2
+              dark:bg-white  dark:hover:bg-gray-200   dark:border-white 
+              flex sm:rounded-2xl items-center shadow-lg shadow-gray-500/50">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="1.5" stroke="currentColor" class="h-6 w-6  mr-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+              
+                <span class='sm:hidden lg:block '> Back to page</span>
+            </button>
+        </a>
+
+        </div>
+    <h1 id='test' class='
+    col-span-2 flex justify-center transition-all items-center 
+    sm:text-7xl lg:text-5xl  m-6 font-bold text-5xl dark:text-white '
+    >Total Users </h1>
+    <div class='flex items-center justify-center'>
+        <img id='toggler' src="{% static 'icons/brightness.png' %} " class='lg:h-8 sm:h-12 transition-all' ></img>
+    </div>
+    </nav>
+    <ul class='flex flex-wrap justify-center'>
+        {% for i in person %}
+        <button value={{i.first_name}} class='single  my-2 mx-2 lg:py-2.5 lg:px-5 lg:text-base sm:text-4xl
+         sm:py-5 sm:px-8 rounded-lg bg-gray-200 dark:bg-gray-800
+        dark:text-gray-300 transition-all dark:hover:bg-gray-700 hover:bg-gray-300  '
+        >{{i.first_name}}</button>
+        {% endfor %}
+    </ul>
+      
+    <div class="flex items-center justify-center">
+        <button id='delete_all' class='my-2 mx-2 lg:py-2 lg:px-4 lg:text-sm
+        sm:text-4xl sm:py-5 sm:px-8 w-fit lg:rounded-3xl sm:rounded-3xl 
+        text-white  bg-red-500 shadow-lg shadow-red-500/50
+        cursor-pointer hover:bg-red-600 transition-all'>Delete All
+        </button>
+
+    </div>
+
+
+    {% comment %} TOAST DANGER {% endcomment %}
+    {% include 'comps/toast.html' with msg="Deleted all names" state='danger'%}
+</body>
+<script src="{% static 'jquery.slim.min.js' %}"></script> 
+<script src="{% static 'jquery.min.js' %}"></script>
+<script src="{% static 'index.js' %}"></script>
+
+<script>
+ 
+    if ($('.single').val() == undefined ){ 
+        dButton = $("#delete_all");
+        dButton.addClass('hidden')
+    } 
+    $('#delete_all').click(function(a){
+        
+
+        $.post('{% url 'delete_all' %}',function(res){
+            location.reload();
+            
+
+        })
+
+    });
+    
+    if ($('html').hasClass('dark') == true){
+        $('html').removeClass('dark');
+        $('img').attr('src','{% static 'icons/brightness.png' %}'); 
+    }else{
+        $('html').addClass('dark'); 
+        $('img').attr('src','{% static 'icons/night.png' %}'); 
+    }
+    $('#toggler').click(function(){
+        if ($('html').hasClass('dark') == true){
+            $('html').removeClass('dark');
+            $('img').attr('src','{% static 'icons/brightness.png' %}'); 
+        }else{
+            $('html').addClass('dark'); 
+            $('img').attr('src','{% static 'icons/night.png' %}'); 
+        }
+    });
+
+
+</script>
+</html>

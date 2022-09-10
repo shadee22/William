@@ -17,8 +17,10 @@ from django.template import loader
 
 import numpy as np
 from requests import Response
-from urllib3 import HTTPResponse
 from .wavelet import w2d
+
+from .models import Person
+
 
 
 
@@ -80,9 +82,32 @@ def result(request):
     })
 
 
+def saving_names(req):
+    guest_name = req.POST['names'];
+    one = Person(first_name = guest_name) ;
+    one.save();
+    
+
+    print(Person.objects.all()[1].first_name );
+    
+    all_names = [single.first_name for single in Person.objects.all() ]
+    print(all_names);
+    return JsonResponse({ 
+                "names" : guest_name,
+            });
+
+def all_names(request):
+    all_names = [single.first_name for single in Person.objects.all() ]
+    return JsonResponse({"total":all_namesw})
+    
+def test_unit(request):
+
+    return render(request , 'test.html' , {"person" : Person.objects.all()} )
+def delete_all(request):
+    a = Person.objects.all().delete();
+    return HttpResponse('Deleted Everyone');
 
 def image_page(request):
-   
     if request.method == "GET"  : 
         # result = classify('model/dataset/lionel_messi/5cb62e40230000c2006db3ac.jpg')
         # print('get_method')
@@ -108,7 +133,7 @@ def image_page(request):
             
             return JsonResponse({
                 'image_data' : result,
-            })
+            })  
 
         except Exception as e :   
             print(e);

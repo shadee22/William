@@ -16,46 +16,9 @@
 </head>
 
 <body class="bg-gray-100">
-
-    <navbar class="grid grid-cols-5 font-bold text-black">
-        <div class="grid items-center justify-center  ">
-            <a href =" {% url 'home' %}"  data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom"
-            class ="mb-2 transition-all   focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
-            >
-            <img  class ='lg:h-10  sm:h-16'id = "tooltip_rocket" src="{%static 'icons/startup.png' %}">
-            </a>
-
-            {% comment %} <button type="button" class="">Tooltip right</button> {% endcomment %}
-            <div id="tooltip-bottom" role="tooltip" class="inline-block absolute invisible transition-all  z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip ">
-                I am Home Price Predictor
-                <div class="tooltip-arrow" data-popper-arrow></div>
-            </div>
-
-
-        </div>
-        
-        <div class='col-span-3 text-center  items-center justify-center grid'>
-            <h1 class = "heading transition-all text-2xl sm:py-6  sm:text-5xl lg:text-3xl">This model will find out who in this image!</h1>
-
-        </div>
-        <div id='name' class='slide-in font-xs  items-center   w-full text-sm  flex font-light   '>
-            <span class='font-bold'> Shadeer sadikeen </span>
-        </div>
-    </navbar> 
-
-
-    {% comment %} <navbar class='grid grid-cols-5 h-16  font-bold text-black'>
-        <div class='items-center justify-center grid '>
-            <a href =" {% url 'home' %}">
-            <img  class =''id = "tooltip_rocket" src="{% static 'icons/startup.png' %}">
-            </a>
-        </div>
-        
-        <div class='col-span-3 items-center justify-center grid'>
-            <h1 class = "heading text-3xl">This model will find out who in this image!</h1>
-        </div>
-        <div class='items-center justify-center grid'>Shadeer Sadikeen</div>
-    </navbar> {% endcomment %}
+        {% include 'comps/name_alert.html' %}
+    
+    {% include "comps/navbar.html" with title='This model will find out who in this image!' name='home' tooltip='I am Home Price Predictor'%}
     <b id= "error">Sorry!😞 Can't classify Eyes of person!</b>
 
     <div class = "lg:py-12  lg:flex sm:grid items-center justify-center">
@@ -93,23 +56,8 @@
         
         
     </div> 
-    {% comment %} <div class="progress">
-        <div class="color"></div>
-        {% comment %} <div id ="loader">Hurray! simply trying to recognize the visual...</div> 
-        <div id ="loader2">Hurray! simply trying to recognize the visual...</div>
-    </div> {% endcomment %}
-    
-    {% comment %} <button id="submitBtn"   class="btn btn-success">Classify</button> {% endcomment %}
     </div>
-    {% comment %} <footer class = 'flex align-center lg:w-2/4 sm:w-52  justify-center'>
-        <div class="icons flex items-center my-6 justify-around ">
-            <a href="https://github.com/shadee22" target="_blank"><img class= "opacity-40 lg:h-8 lg:w-8 w-28  sm:h-20  " src={%static 'icons/git.jpg' %}></a>
-            <a href="https://www.facebook.com/shadeer.sadikeen/"target="_blank"><img class= "opacity-40 lg:h-8 w-52 lg:w-8 sm:h-20 sm:w-full " src={%static 'icons/fb.png' %}></a>
-            <a href="https://www.instagram.com/sl_programmer/" target="_blank"><img  class= "opacity-40  w-32  lg:h-8 lg:w-full sm:h-24 sm:w-full " src={%static 'icons/insta.png' %}></a>
-            <a href="https://www.linkedin.com/in/shadeer-/" target="_blank"><img class= "opacity-40 lg:h-8 lg:w-8  w-52 sm:h-20 sm:w-full " src={%static 'icons/link.png' %}></a>
-        </div>
-    </footer>  {% endcomment %}
-      
+
     <footer class=' centered '>
         <a href="mailto:shadeersadikeen@gmail.com" class="cursor-pointer centered text-gray-500" target="_blank">
         <span>

@@ -1,9 +1,10 @@
-var live_url = 'http://13.234.226.190:80/image/'
-var local_url = 'http://127.0.0.1:8000/image/'
+var live_url = 'http://13.234.226.190:80/william_classifier/'
+var local_url = 'http://127.0.0.1:8000/william_classifier/'
 // Classifier page
 Dropzone.autoDiscover = false
 
 $(document).ready(function() {
+    
     $("#result").hide();
     $("#error").hide();
     $(".loading").hide();
@@ -14,7 +15,7 @@ $(document).ready(function() {
 function init() {
 
     let dz= new Dropzone('#dropzone',{
-        url:'/image/',
+        url:live_url,
         maxFiles:1,
         maxFilesize:2,
         autoProcessQueue: true
@@ -91,3 +92,38 @@ function init() {
 //     $('#result-img').attr('src' , '/static/images/har.jpg');
 // })
 
+window.onload = function() {
+    $('#modal').hide();
+    setTimeout(function() {
+        $( "#modal" ).fadeIn()
+      }, 5000);
+
+    setTimeout(function() {
+        $( "#modal" ).fadeOut()
+    }, 120000);
+}
+
+$('.close').click(function(){
+    $("#modal").fadeOut();
+});
+
+$('.alexa-text').keypress(function (e) {
+    if (e.which == 32){
+        console.log('Space Detected');
+        return false;
+    }
+    if (e.which == 13) {
+        let val = capital_first_letter($('.alexa-text').val())
+        $("#modal").fadeOut();
+        $.post("http://127.0.0.1:8000/saving_names/",{
+            names : val,
+        },function(res){
+            console.log(res);
+            $('.name').text(val);
+        });
+    }
+});
+function capital_first_letter(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
+
+}
