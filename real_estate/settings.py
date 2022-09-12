@@ -30,8 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
-# Application definition
-TAILWIND_APP_NAME = 'theme'
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
+    'corsheaders', 
     'real_estate',
 ]
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -108,7 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/

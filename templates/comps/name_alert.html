@@ -1,12 +1,27 @@
 
 {% load static %}
-<div id='modal'class=' m-12 p-2 absolute text-white bg-slate-800 w-fit lg:w-fit sm:py-12 sm:mx-2 sm:w-screen sm:rounded-3xl  bottom-0 lg:px-6 lg:py-4 lg:rounded-lg transition all'>
-    <div class='close cursor-pointer absolute right-4 top-2 lg:text-sm sm:text-5xl sm:py-5 lg:py-2.5 lg:px-2 sm:px-10 text-white hover:text-gray-200'>x</div>
-    <label class="block mb-4 lg:text-sm sm:text-5xl sm:py-5 sm:px-10 lg:py-2.5 lg:px-5 font-thin text-white">Hey Buddy Write Your name here!</label>
-    <div class="flex ">
-    <input type="text" class="alexa-text border sm:py-5 sm:px-10 lg:text-sm lg:py-2.5 lg:px-5 sm:text-5xl border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5" placeholder="Alexa">
-    <input type="submit" class='bg-blue-500 sm:py-5 sm:px-10 lg:py-2.5 lg:px-5 py-2.5 px-5 mx-2 lg:text-sm sm:text-5xl rounded-lg enter' >
+<div id='modal'class=' shadow-2xl shadow-slate-900 p-2 absolute text-white bg-slate-800 w-fit lg:w-fit 
+    sm:py-12 sm:w-5/6 bottom-56 lg:px-6 sm:px-12 lg:py-4 rounded-l-none rounded-r-2xl transition'>
+    <div class='flex items-center mb-4'>
+        
+
+        <label class="flex   lg:text-sm sm:text-5xl sm:py-5  sm:px-10 lg:py-2.5 
+        lg:px-5 font-thin text-white">Hey Buddy Write Your name here!</label>
+        <div class='close cursor-pointer lg:text-sm sm:text-5xl 
+         p-2 text-white hover:text-gray-200 rounded-lg hover:bg-gray-700 transition '>
+         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>          
+        </div>
     </div>
+    <div class="flex ">
+    <input type="text" class="alexa-text border sm:py-5 sm:px-10 lg:text-sm lg:py-2.5
+     lg:px-5 sm:text-5xl border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500
+      block w-full p-2.5" placeholder="Alexa">
+    <input type="submit" class='bg-blue-500 sm:py-5 sm:px-10 lg:py-2.5 lg:px-5 py-2.5 px-5 mx-2
+     lg:text-sm sm:text-5xl rounded-2xl enter' >
+    </div>
+
 </div>
 <script src="{% static 'jquery.slim.min.js' %}"></script> 
 <script src="{% static 'jquery.min.js' %}"></script>
@@ -14,7 +29,7 @@
 <script>
     
 window.onload = function() {
-    $('#modal').hide();
+
     setTimeout(function() {
         $( "#modal" ).fadeIn()
       }, 5000);
@@ -27,6 +42,16 @@ window.onload = function() {
 $('.close').click(function(){
     $("#modal").fadeOut();
 });
+$('.enter').click(function(){
+    let val = capital_first_letter($('.alexa-text').val())
+    $("#modal").fadeOut();
+    $.post('{% url  'saving' %}',{
+        names : val,
+    },function(res){
+        console.log(res);
+        $('.name').text(val);
+    });
+})
 
 $('.alexa-text').keypress(function (e) {
     if (e.which == 32){
@@ -34,8 +59,9 @@ $('.alexa-text').keypress(function (e) {
         return false;
     }
     if (e.which == 13) {
+
         let val = capital_first_letter($('.alexa-text').val())
-        $("#modal").fadeOut();
+        $("#modal").hide();
         $.post('{% url  'saving' %}',{
             names : val,
         },function(res){
@@ -43,7 +69,7 @@ $('.alexa-text').keypress(function (e) {
             $('.name').text(val);
         });
     }
-});
+}); 
 function capital_first_letter(string){
     return string.charAt(0).toUpperCase() + string.slice(1);
 
